@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>IG Tools</title>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="main.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">
+            <img src="img/icon.png" width="30" height="30" class="d-inline-block align-top" alt="">
+            Kominfo IG-Tools
+        </a>
+    </nav>
+
+    <div class="container">
+        <h4 style="text-align: center">Preview</h4>
+        <div id="canvas-container">
+            <canvas id="userActions">
+            </canvas>
+            <p>
+                <div>Drag and drop image on above canvas</div>
+            </p>
+
+            <div class="custom-file">
+                <input type="file" class="custom-file-input" id="fileUpload" required>
+                <label class="custom-file-label" for="fileUpload">or click here to choose file...</label>
+                <div class="invalid-feedback">Example invalid custom file feedback</div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="js/main.js"></script>
+</body>
+
+
+
+</html>

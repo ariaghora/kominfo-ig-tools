@@ -1,0 +1,18 @@
+body {
+    margin: 0px;
+    padding: 0px;
+}
+
+#userActions {
+    width: 500px;
+    height: 500px;
+    background-color: #333;
+}
+
+#canvas-container {
+    width: 500px;
+    height: 500px;
+    display: block;
+    margin: 0 auto;
+    box-shadow: 0 0 10px 1px #333 ;
+}
