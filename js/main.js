@@ -32,6 +32,12 @@ function redraw(frame_src, image_src) {
         frame.src = frame_src;
         frame.onload = function () {
             ctx.drawImage(frame, 0, 0, sz, sz);
+
+            updateLink();
+
+            canvas.toBlob(function(blob) {
+                saveAs(blob, "pretty image.png");
+            });
         }
     }
 }
@@ -55,6 +61,19 @@ function runUpload(file) {
     }
 }
 
+function updateLink() {
+    var canvas = document.getElementById('userActions');
+    var link = $('#save-btn');
+    link.attr('href', canvas.toDataURL());
+    link.attr('download', 'download.png');
+
+    $('#save-btn').on('click', function() {
+        var canvas = document.getElementById('userActions')
+        canvas.toBlob(function(blob){
+            saveAs(blob, "pretty image.png");
+        })
+    })
+}
 
 $(document).ready(function () {
 
@@ -63,10 +82,7 @@ $(document).ready(function () {
 
     redraw(defaultFrame, currentImg);
 
-    var canvas = document.getElementById('userActions');
-    var link = $('#save-btn');
-    link.attr('href', canvas.toDataURL());
-    link.attr('download', 'download.png');
+    updateLink();
 
     if (window.FileReader) {
 
@@ -75,8 +91,5 @@ $(document).ready(function () {
         $('#fileUpload').change(function () { runUpload(this.files[0]); });
     }
 
-    $('#save-btn').on('click', function () {
-
-    })
 
 });
