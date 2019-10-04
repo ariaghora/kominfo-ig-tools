@@ -51,8 +51,8 @@ function runUpload(file) {
             currentImg = _file.target.result;
             redraw('img/frame1.png', currentImg);
 
-        } 
-    } 
+        }
+    }
 }
 
 
@@ -63,18 +63,20 @@ $(document).ready(function () {
 
     redraw(defaultFrame, currentImg);
 
+    var canvas = document.getElementById('userActions');
+    var link = $('#save-btn');
+    link.attr('href', canvas.toDataURL());
+    link.attr('download', 'download.png');
+
     if (window.FileReader) {
-        
+
         dragdrop.init($('#userActions'));
-        
+
         $('#fileUpload').change(function () { runUpload(this.files[0]); });
     }
 
-    $('#save-btn').on('click', function() {
-        var canvas = document.getElementById('userActions');
-        var link = $('#save-btn');
-        link.href = canvas.toDataURL();
-        link.download = "mypainting.png";
+    $('#save-btn').on('click', function () {
+
     })
 
 });
