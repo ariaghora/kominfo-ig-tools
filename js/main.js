@@ -35,9 +35,9 @@ function redraw(frame_src, image_src) {
 
             updateLink();
 
-            canvas.toBlob(function(blob) {
-                saveAs(blob, "pretty image.png");
-            });
+            // canvas.toBlob(function(blob) {
+            //     saveAs(blob, "pretty image.png");
+            // });
         }
     }
 }
@@ -67,12 +67,12 @@ function updateLink() {
     link.attr('href', canvas.toDataURL());
     link.attr('download', 'download.png');
 
-    $('#save-btn').on('click', function() {
-        var canvas = document.getElementById('userActions')
-        canvas.toBlob(function(blob){
-            saveAs(blob, "pretty image.png");
-        })
-    })
+    // $('#save-btn').on('click', function() {
+    //     var canvas = document.getElementById('userActions')
+    //     canvas.toBlob(function(blob){
+    //         saveAs(blob, "pretty image.png");
+    //     })
+    // })
 }
 
 $(document).ready(function () {
