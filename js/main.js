@@ -21,12 +21,14 @@ function redraw(frame_src, image_src) {
     canvas.height = sz;
 
     var img = new Image();
+    img.crossOrigin = '*';
     img.src = image_src == '' ? 'img/placeholder.jpg' : image_src;
     img.onload = function () {
         ctx.fillStyle = 'green';
         ctx.drawImage(img, 145, 96, 1150, 1150);
 
         var frame = new Image();
+        frame.crossOrigin = '*';
         frame.src = frame_src;
         frame.onload = function () {
             ctx.drawImage(frame, 0, 0, sz, sz);
@@ -67,5 +69,12 @@ $(document).ready(function () {
         
         $('#fileUpload').change(function () { runUpload(this.files[0]); });
     }
+
+    $('#save-btn').on('click', function() {
+        var canvas = document.getElementById('userActions');
+        var link = $('#save-btn');
+        link.href = canvas.toDataURL();
+        link.download = "mypainting.png";
+    })
 
 });
